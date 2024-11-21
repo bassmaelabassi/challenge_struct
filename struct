@@ -1,0 +1,64 @@
+nclude<stdio.h>
+
+struct adr{
+    char    rue[20];
+    char    ville[20];
+    int code_postal;
+};
+
+struct personne{
+    char nom[10];
+    int age;
+    struct adr adr;
+};
+
+void    ecreer(struct personne *personne){
+    printf("nom :");
+    scanf("%s", personne->nom);
+
+    printf("age : ");
+    scanf("%d", &personne->age);
+
+    printf(" rue :");
+    scanf("%s", personne->adr.rue);
+
+    printf("ville : ");
+    scanf("%s", personne->adr.ville);
+
+    printf("code postal : ");
+    scanf("%d", &personne->adr.code_postal);
+
+}
+ void   afficher(struct personne personne) {
+    printf("--- Informations de %s ---\n", personne.nom);
+    printf("Nom : %s\n", personne.nom);
+    printf("Age : %d\n", personne.age);
+    printf("Adresse : %s, %s, %d\n", personne.adr.rue, personne.adr.ville, personne.adr.code_postal);
+}
+void    modifie(struct personne *personne){
+    printf("modifier age : ");
+    scanf("%d, &personne->age");
+
+    printf("modifier rue :");
+    scanf("%s", personne->adr.rue);
+
+    printf("modifier ville :");
+    scanf("%s", personne->adr.ville);
+
+    printf("modifier code postal :");
+    scanf("%d", &personne->adr.code_postal);
+}
+
+int main(){
+    struct personne c;
+
+    ecreer(&c);
+    afficher(c);
+
+    printf("modifier les informations : \n");
+    modifie(&c);
+    
+    afficher(c);
+    
+    return 0;
+}
